@@ -180,3 +180,8 @@ POST   /api/v1/appointments
 | `POST` | `/api/v1/auth/refresh` | 10 rpm |
 
 El resto de endpoints requieren un `Authorization: Bearer <access_token>` válido.
+---
+
+## Autor
+
+**Miguel Ramos** — [github.com/MiguelAngelRamos](https://github.com/MiguelAngelRamos)
