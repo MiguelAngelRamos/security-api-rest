@@ -166,10 +166,10 @@ export class AuthController {
     const env = this.configService.get<string>('app.nodeEnv');
     const secure = env !== 'development' && env !== 'test';
     return {
-      httpOnly: true,
-      secure,
-      sameSite: 'strict' as const,
-      path: REFRESH_COOKIE_PATH,
+      httpOnly: true, // JavaScript no puede acceder a esta cookie (bloquea XSS)
+      secure, // Solo viaja por HTTPS en producción (pero permite HTTP en dev/test)
+      sameSite: 'strict' as const, // No se envía en requests cross-site (protege contra CSRF)
+      path: REFRESH_COOKIE_PATH, // Cookie solo se envía a esta ruta específica
     };
   }
 }

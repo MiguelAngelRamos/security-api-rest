@@ -144,7 +144,7 @@ export class AuthService {
       sub: user.id,
       email: user.email,
       role: user.role,
-      jti: randomUUID(),
+      jti: randomUUID(), // identificador unico del token
     };
 
     const issuer = this.configService.getOrThrow<string>('jwt.issuer');
